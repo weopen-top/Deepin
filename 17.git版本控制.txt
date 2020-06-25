@@ -1,0 +1,37 @@
+日期：2020-06-07 01:31
+环境：deepin v20
+----------------------
+【安装git】
+$ sudo apt install git
+
+【克隆仓库】
+$ git clone https://github.com/weopen-top/CentOS/
+
+【保存用户名密码】
+方法一：
+$ vim ~/.gitconfig
+[user]
+	name = weopen-top
+
+	email = 752626325@qq.com
+
+[credential]
+    helper = store
+
+方法二：
+$ git config --global credential.helper store
+
+下次输入账号密码后自动保存。
+
+【添加或修改】
+$ git add .
+
+【提交】
+$ git commit -m "注释"
+$ git push
+
+【更新】
+$ git pull
+
+【大文件上传】
+https://git-lfs.github.com/

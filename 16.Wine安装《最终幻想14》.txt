@@ -1,0 +1,24 @@
+标题：Wine安装《最终幻想14》
+日期：2020-05-22
+环境：Deepin 20 Beat 社区版、wine-5.8、winetricks-20200412
+作者：孤岛悬城
+参考链接：https://bbs.nga.cn/read.php?tid=18782486&page=1&rand=509
+-----------------------------------------------------------------
+1.安装wine和winetricks
+官方文献（安装wine时我添加了debian9和debian10的源，Deepin自带的源我没试）
+https://wiki.winehq.org/Debian_zhcn
+https://wiki.winehq.org/Winetricks
+
+2.如果更新winetricks时，winetricks报错：raw.githubusercontent.com未认证。则：
+打开网页浏览器进入 https://www.IPAddress.com,输入raw.githubusercontent.com查询到真实IP地址
+将raw.githubusercontent.com和查到的真实IP地址添加到/etc/host文件中。
+echo "199.232.68.133	raw.githubusercontent.com" >> /etc/hosts
+
+3.安装思路(WINEPREFIX=的参数根据实际路径填写）
+添加新容器及添加相应组件：
+WINEARCH=win32 WINEPREFIX=~/storage/games/ffxiv winetricks -q xact xinput d3dx9 directx9 devenum quartz hosts win7 ie8 ole32 videomemorysize=default
+
+用新容器运行下载好的《最终幻想14》安装包：
+WINEARCH=win32 WINEPREFIX=~/storage/games/ffxiv wine FFXIV_20190516all_setup.exe
+
+第一次登录游戏时会发现播放的开场动画卡死，这是Wine的bug。进入/storage/games/ffxiv/drive_c/Program Files/SNDA/FFXIV/game/My Games/FINAL FANTASY XIV - A Realm Reborn 目录，编辑 FFXIV.cfg 文件。找到文件里的 CutsceneMovieOpening 把旁边的 0 改成 1 即可。

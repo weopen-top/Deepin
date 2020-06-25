@@ -1,0 +1,32 @@
+【安装vbox】
+
+添加Virtualbox Debian10软件源：
+$ sudo echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian buster contrib" >> /etc/apt/sources.list.d/virtualbox.list
+
+添加Virtualbox Debian9软件源：
+$ sudo echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian buster contrib" >> /etc/apt/sources.list.d/virtualbox.list
+
+添加软件源密钥认证：
+$ su root
+# wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+# wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+
+清除apt缓存并更库件列表：
+$ sudo apt clean
+$ sudo apt update
+
+安装vbox：
+$ sudo apt-get install virtualbox-6.1
+
+查看安装结果：
+virtualbox --help
+
+【设备安装增强功能】
+[centos6.5]7.2也没毛病
+搭建yum，确认yum可以正常装包。
+yum install kernel-devel gcc bzip2
+ln -s /usr/src/kernels/当前内核版本名/ /usr/src/linux
+点击vbox设备-安装增强功能
+挂载/dev/cdrom
+进入挂在路径
+运行./VBoxLinuxAdditions.run

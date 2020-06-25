@@ -1,0 +1,2 @@
+安装工具：seahorse
+sudo apt install seahorse

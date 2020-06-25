@@ -1,0 +1,28 @@
+日期：2020-03-12 10:30
+测试环境：deepin15.11
+链接：https://www.cnblogs.com/carlsplace/p/8323800.html
+------------------------------------------------------
+【xrdp远程桌面服务端】
+简介：xrdp是一个rdp协议的服务端工具，可以让Windows用远程桌面访问Linux。
+
+装包命令：sudo apt-get install xrdp
+
+具体配置工作如下：
+1.在需要远程登录的用户的home目录下，修改~/.xsession文件，添加桌面session启动命令。
+如Xfce桌面添加：xfce4-session，（**注意：Xfce在vnc下有bug，tab补全功能无法使用，解决方法参见https://blog.csdn.net/xuezhisdc/article/details/48662435），如Lubuntu添加：lxsession -e LXDE -s Lubuntu
+2.注意检查/etc/xrdp/startwm.sh最后一行为. /etc/X11/Xsession
+3.启动xrdp服务，sudo sysemctl start xrdp
+4.设置xrdp服务开机自启，sudo systemctl enable xrdp
+
+【rdesktop远程桌面客户端】
+简介：rdesktop是一个rdp协议访问工具，可以访问Windows远程桌面
+
+装包命令：sudo apt-get install rdesktop
+
+命令格式：rdesktop [参数] [地址:端口]
+
+参数：-g 1200x900      #分辨率，可用-f（全屏）替换
+     -r sound:local        #本地播放声音
+     -r disk:floppy=/mnt/floppy         #映射目录（没尝试成功）
+     -x 0x80          #平滑处理
+注意：-r sound和-r disk需要同时设置才能适合共享文件路径生效。

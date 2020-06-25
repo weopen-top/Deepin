@@ -1,0 +1,17 @@
+钉钉
+微信
+Master PDF Editor（PDF编辑,选择语言：Tools→Settings→Language）
+Bluefish（Web编辑器）
+新立得软件包管理器
+steam(游戏商城，dota2，csgo）
+百度网盘（Linux）
+*谷歌浏览器
+GIMP（图片编辑，类似PS）
+Foxmail（邮件管理）
+*WPS office
+*网易云音乐
+*搜狗输入法
+TIM
+深度live系统(PE系统）
+seahorse密码管理
+gedit终端文本编辑

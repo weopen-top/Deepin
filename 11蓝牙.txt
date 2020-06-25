@@ -1,0 +1,3 @@
+https://ywnz.com/linuxjc/4763.html
+安装蓝牙组件：
+sudo apt install bluetooth blueman

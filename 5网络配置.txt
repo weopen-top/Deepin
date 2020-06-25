@@ -1,0 +1,27 @@
+更新：20191207001
+测试环境：Debian
+链接：https://blog.csdn.net/liguangxianbin/article/details/79761124
+---------------
+配置文件：
+    /etc/network/interfaces        //网络
+    /etc/resolv.conf               //DNS
+
+配置静态网络:
+$vi /etc/network/interfaces
+    # 动态ip获取的配置：
+    auto  eth0
+    iface eth0 inet dhcp
+ 
+    # 静态ip分配的配置：
+    auto  lo                    #开机自动激活lo接口
+    iface eth0 inet static      #启用静态配置
+    address    ip地址            #表示本机需要设置的ip地址
+    netmask   子网掩码            #子网掩码
+    gateway   网关ip             #表示网络网关的ip地址
+    #iface eth0 inet static 后面添加一行：pre-up ifconfig eth0 hw ether xx:xx:xx:xx:xx:xx（要改成的MAC）
+                                #修改网卡物理地址
+
+上面的关于网卡的修改，都需要重启网卡才会生效：
+sudo /etc/init.d/networking restart
+或
+sudo systemctl restart networking.service

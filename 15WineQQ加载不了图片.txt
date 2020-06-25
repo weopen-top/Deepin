@@ -1,0 +1,21 @@
+日期：2020-05-27 23:27
+环境：deepin15.11，TIM(wine)-2.0.0deepin4,QQ（wine)9.1.8deepin0
+--------------------------------------------------------------
+【方法一：关闭ipv6】
+关闭ipv6可解决wineqq加载图片转圈圈的问题。
+sudo dedit /etc/sysctl.d/99-sysctl.conf
+加入：
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+之后sudo sysctl -p
+
+【方法二：设置本地代理】
+1.安装privoxy，开启privoxy.service，并设置开机自启。
+sudo apt install privoxy
+sudo systemctl start privoxy.service
+sudo systemctl enable privoxy.service
+
+2.打开qq 登录界面，点击设置
+3.在设置代理里面选http代理，并填入127.0.0.1 端口 8118
+4.点击确定登录qq 即可，这时qq 头像和图片 过会自动显示

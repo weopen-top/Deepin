@@ -1,0 +1,8 @@
+【修改启动器图标】
+1.准备大小合适的svg格式矢量图标
+
+2.以管理员身份打开/usr/share/icons/deepin/places
+
+3.替换里面的deepin-launcher.svg（权限为读写，只读，只读）
+
+4.重启deepin

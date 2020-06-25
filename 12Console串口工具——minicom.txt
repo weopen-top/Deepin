@@ -1,0 +1,58 @@
+日期：2020-03-13 14:50
+环境：deepin15.11
+参考链接：https://blog.csdn.net/qq_38880380/article/details/77662637
+-------------------------------------------------------------------
+介绍：配置网络设备通常需要通过串口，minicom可以实现串口通信。
+
+【需要硬件】
+1.USB转串口线
+2.Console转rj45线（具体看设备接口）
+
+【安装minicom】
+sudo apt install minicom
+
+【查看USB设备】
+插上USB转串口线查看接口是否连接成功。
+$ ls -l /dev/ttyUSB*
+crw-rw---- 1 root dialout 188, 0 Apr 10 17:10 /dev/ttyUSB0
+
+$ lsusb
+Bus 004 Device 009: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
+
+【设置minicom】
+1.运行终端命令：sudo minicom -s
+
+2.选中Serial port setup回车
+
+3.设置串口设备
+A -    Serial Device      : /dev/ttyUSB0
+
+4.设置时钟频率
+E -    Bps/Par/Bits       : 9600 8N1
+
+5.取消硬件流控
+F - Hardware Flow Control : No
+
+6.回车返回
+
+7.选择Save setup as dfl保存当前配置
+
+9.选择Exit退出
+
+【连接串口通信】
+1.sudo minicom
+
+2.如果提示Device /dev/ttyUSB0 is locked.则删除LCK文件，默认在/var/lock/LCK..ttyUSB*
+
+3.退出时按Ctrl+A，然后按Q键。
+
+【保存日志】
+1.运行终端命令sudo minicom
+
+2.Ctrl+A进入命令模式
+
+3.按Z键打开设置设置
+
+4.选择Capture on/off.....L同步日志文件
+
+5.输入文件名回车，会把日志文件保存到当前路径。

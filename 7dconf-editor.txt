@@ -1,0 +1,14 @@
+日期：2020-04-20 16:04
+环境：deepin15.11
+----------------
+【介绍】
+dconf-editor是一个系统参数修改工具，类似于Windows的注册表。
+
+【安装软件】
+sudo apt install dconf-editor
+
+【修改任务栏宽度】deepin20不再适用
+打开dconf系统配置编辑器
+/com/deepin/dde/dock/icon-size
+关闭Use default value
+修改Custom value值

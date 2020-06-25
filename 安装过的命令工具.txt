@@ -1,0 +1,5 @@
+xrdp
+rdesktop
+firewalld
+selinux-basics
+telnet
