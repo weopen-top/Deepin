@@ -32,3 +32,6 @@ ln -s /usr/src/kernels/当前内核版本名/ /usr/src/linux
 挂载/dev/cdrom
 进入挂在路径
 运行./VBoxLinuxAdditions.run
+
+【嵌套虚拟化】
+$ VBoxManage modifyvm "vm" --nested-hw-virt on
