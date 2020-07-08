@@ -1,0 +1,57 @@
+【Deepin笔记本WIFI速度过慢问题】
+更新：202002031359
+测试环境：deepin15.11
+----------------------------
+方法一：
+
+修改配置文件/etc/modprobe.d/iwlwifi.conf中11n_disable=1改为0或8，网速恢复正常。
+
+下面是操作指南：
+
+$sudo deepin-editor /etc/modprobe.d/iwlwifi.conf
+
+
+修改如下配置：
+
+options iwlwifi 11n_disable=0 bt_coex_active=0 power_save=0 swcrypto=1
+
+或
+
+options iwlwifi 11n_disable=8 bt_coex_active=0 power_save=0 swcrypto=1
+
+【WineQQ加载不了图片】
+日期：2020-05-27 23:27
+环境：deepin15.11，TIM(wine)-2.0.0deepin4,QQ（wine)9.1.8deepin0
+--------------------------------------------------------------
+方法一：关闭ipv6
+关闭ipv6可解决wineqq加载图片转圈圈的问题。
+sudo dedit /etc/sysctl.d/99-sysctl.conf
+加入：
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+之后sudo sysctl -p
+
+方法二：设置本地代理
+1.安装privoxy，开启privoxy.service，并设置开机自启。
+sudo apt install privoxy
+sudo systemctl start privoxy.service
+sudo systemctl enable privoxy.service
+
+2.打开qq 登录界面，点击设置
+3.在设置代理里面选http代理，并填入127.0.0.1 端口 8118
+4.点击确定登录qq 即可，这时qq 头像和图片 过会自动显示
+
+【启动器背景模糊效果失效】
+日期：2020-07-08 11:26
+环境：deepin v20
+----------------------------
+系统自动生成的启动器背景图片路径：
+/var/cache/image-blur/
+
+系统模糊工具：
+/usr/lib/deepin-api/image-blur-helper  原图片 输出图片
+
+如果系统模糊工具不管用可以用gimp-滤镜-模糊-高斯模糊
+将生成的模糊图片替换到/var/cache/image-blur/
+文件名为自动生成的模糊文件名
