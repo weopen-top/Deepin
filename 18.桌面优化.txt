@@ -2,5 +2,6 @@
 环境：deepin v20
 ----------------------
 
-【优化软件】
-systemsettings              #KDE 系统管理
+【systemsettings5工具】
+安装工具包
+sudo apt install systemsettings
