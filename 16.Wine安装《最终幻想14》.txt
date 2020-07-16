@@ -35,6 +35,6 @@ echo "199.232.68.133	raw.githubusercontent.com" >> /etc/hosts
 WINEARCH=win32 WINEPREFIX=~/storage/games/ffxiv winetricks -q xact xinput d3dx9 directx9 devenum quartz hosts win7 ie8 ole32 videomemorysize=default
 
 用新容器运行下载好的《最终幻想14》安装包：
-WINEARCH=win32 WINEPREFIX=~/storage/games/ffxiv wine FFXIV_20190516all_setup.exe
+WINEARCH=win32 WINEPREFIX=~/storage/games/ffxiv wine 最终幻想安装包_setup.exe
 
 第一次登录游戏时会发现播放的开场动画卡死，这是Wine的bug。进入/storage/games/ffxiv/drive_c/Program Files/SNDA/FFXIV/game/My Games/FINAL FANTASY XIV - A Realm Reborn 目录，编辑 FFXIV.cfg 文件。找到文件里的 CutsceneMovieOpening 把旁边的 0 改成 1 即可。
