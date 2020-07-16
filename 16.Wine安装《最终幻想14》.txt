@@ -5,9 +5,25 @@
 参考链接：https://bbs.nga.cn/read.php?tid=18782486&page=1&rand=509
 -----------------------------------------------------------------
 1.安装wine和winetricks
-官方文献（安装wine时我添加了debian9和debian10的源，Deepin自带的源我没试）
+官方文献
 https://wiki.winehq.org/Debian_zhcn
 https://wiki.winehq.org/Winetricks
+
+sudo dpkg --add-architecture i386
+
+wget -nc https://dl.winehq.org/wine-builds/Release.key
+sudo apt-key add Release.key
+
+sudo echo "deb https://dl.winehq.org/wine-builds/debian/ stretch main\
+deb https://dl.winehq.org/wine-builds/debian/ buster main\
+deb https://dl.winehq.org/wine-builds/debian/ bullseye main" > /etc/apt/sources.list.d/winehq.list
+
+sudo apt install --install-recommends winehq-stable
+#（稳定版winehq-stable、开发分支winehq-devel、Staging分支winehq-staging）
+
+cd "${HOME}/Downloads"
+wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+chmod +x winetricks
 
 2.如果更新winetricks时，winetricks报错：raw.githubusercontent.com未认证。则：
 打开网页浏览器进入 https://www.IPAddress.com,输入raw.githubusercontent.com查询到真实IP地址
