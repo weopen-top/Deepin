@@ -1,0 +1,32 @@
+日期：2020-08-02 21:48
+环境：deepin v20 beat、apache2 2.4.38-3+deb10u3、phddns 1.0.0（花生壳）
+----------------------------------------------------------------------
+【花生壳打通内外网】
+1.域名申请（要花钱的，可以先买个几块钱的域名试试手）
+https://console.oray.com/domain/root/
+
+2.安装花生壳
+https://service.oray.com/question/4287.html
+
+3.添加http端口映射（每个月1G免费流量，有机会我会出免费无流量限制的教程）
+https://console.hsk.oray.com/forward
+（注意：要映射到内网任意非80的私有端口，因为家用宽带80端口通常是被电信联通运营商禁用的）
+
+【搭建apache2服务】
+1.安装apache2
+$ sudo apt install apache2
+
+2.更改监听端口
+$ sudo vim /etc/apache2/ports.conf
+...
+Listen 映射到外网的端口
+...
+
+【修改web根目录权限方便修改网站内容】
+$ sudo setfacl -R -m u:登陆用户名:rwx /var/www
+
+之后把网页文件放到/var/www/html下网站就可以访问了
+还可以在文件管理器里，将/var/www/html添加书签
+
+
+PS：如果不会写网页，推荐小甲鱼的免费教程——>https://fishc.com.cn/forum-354-1.html
