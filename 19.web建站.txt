@@ -7,6 +7,9 @@ https://console.oray.com/domain/root/
 
 2.安装花生壳
 https://service.oray.com/question/4287.html
+phddns start（启动）| stop（停止）| status（状态）| restart（重启）|
+phddns reset（重置）
+phddns version（版本）
 
 3.添加http端口映射（每个月1G免费流量，有机会我会出免费无流量限制的教程）
 https://console.hsk.oray.com/forward
